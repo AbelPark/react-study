@@ -1,3 +1,38 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Disallow:
+
+공식문서(nextjs.org/docs/basic-features/static-file-serving)에 따르면 public 폴더 안에 두는 것이 좋다고 합니다.
+
+ - 모든 로봇에 대해서(*) 모든 곳에 접근을 허용하지 않는다(/) : 네이버
+
+User-agent: *
+Disallow: /
+ 
+
+ - 모든 로봇에 대해서(*) 어떤 곳에는 접근을 허용하나 다른 곳에는 허용하지 않는다. : 구글
+
+User-agent: *
+Disallow: /search
+Allow: /search/about
+Allow: /search/static
+Allow: /search/howsearchworks
+...(중략)
+
+ - 로봇 별로 다른 권한을 준다 : 위키피디아는 각 로봇의 특성을 따져 각기 다른 권한을 주고 있습니다.
+
+# Some bots are known to be trouble, particularly those designed to copy
+# entire sites. Please obey robots.txt.
+User-agent: sitecheck.internetseer.com
+Disallow: /
+
+User-agent: Zealbot
+Disallow: /
+...(중략)
+ 
+
+cf) CRA(create-react-app)를 통해서 React.js 프로젝트를 시작하면 public 폴더 내에 robots.txt가 있음을 볼 수 있습니다. 적절하게 설정해줍시다.
+
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Disallow:
